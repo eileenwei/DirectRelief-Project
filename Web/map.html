@@ -10,6 +10,7 @@
      <script type="text/javascript">
      var map;
      var activeIndex = 0;
+     var pointsCount = 0;
      var myCountdown1;
      var locations = [
        {
@@ -105,12 +106,18 @@
        if (checkLocation(event.latLng.k, event.latLng.B)&& checkTimeNotDone())
        {
          marker = new google.maps.Marker({position: event.latLng, map: map});
+         pointsCount = pointsCount + 10;
+         updatePointsLabel();
        }
        
        if (!checkTimeNotDone()){
          alert('Time is out!');
        }
      }
+	 
+	 function updatePointsLabel(){
+		document.getElementById("points-count").innerHTML = pointsCount;
+	 }
      
      function outputList(){
        var html="";
@@ -128,8 +135,10 @@
        };
        map = new google.maps.Map(document.getElementById('map-canvas'),
            mapOptions);
-       outputList();
-       google.maps.event.addListener(map, 'click', placeMarker);
+                    outputList();
+      google.maps.event.addListener(map, 'click', placeMarker);
+	  
+      updatePointsLabel();
      }
      google.maps.event.addDomListener(window, 'load', initialize);
     </script>
@@ -142,6 +151,7 @@
         <li>
         <div class="logo">
             <a href=""><h1>DirectRelief</h1></a>
+            <p>Find out where key resources are before a disaster hits your local area!</p>
           </div>
       </li>
       <li>
@@ -155,6 +165,12 @@
        </script> 
     </div>
      </li>
+     <li>
+       <div>
+         <label>Points: </label>
+         <label id="points-count"></label>
+       </div>
+     </li>
     </ul>
     </div>
 
@@ -164,12 +180,15 @@
       <div id="map-canvas"></div>
     </div>
     <div class="right-col">
+<<<<<<< HEAD
 
 
       <ul id="list">
       </ul>
 
 
+=======
+>>>>>>> origin/master
 
 
 
@@ -185,7 +204,10 @@
 
       <ul id="list">
       </ul>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     </div>
 
     <div class="push"></div>
