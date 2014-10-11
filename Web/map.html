@@ -10,6 +10,7 @@
      <script type="text/javascript">
      var map;
      var activeIndex = 0;
+     var myCountdown1;
      var locations = [
        {
          id:1,
@@ -87,14 +88,27 @@
        return false;
      }
      
+     function checkTimeNotDone(){
+       if (myCountdown1._timeRunnerNow.minute == 0 &&
+         myCountdown1._timeRunnerNow.second == 0 &&
+         myCountdown1._timeRunnerNow.ms == 0){
+         return false;
+       }
+       return true;
+     }
+     
      function highLight(id){
        document.getElementById(id).className = "activatedItem";
      }
      
      function placeMarker(event){
-       if (checkLocation(event.latLng.k, event.latLng.B))
+       if (checkLocation(event.latLng.k, event.latLng.B)&& checkTimeNotDone())
        {
          marker = new google.maps.Marker({position: event.latLng, map: map});
+       }
+       
+       if (!checkTimeNotDone()){
+         alert('Time is out!');
        }
      }
      
@@ -133,7 +147,7 @@
       <li>
       <div class="nav-item">
          <script>
-            var myCountdown1 = new Countdown({
+            myCountdown1 = new Countdown({
               time:600,
               width:150, 
               height:50, 
