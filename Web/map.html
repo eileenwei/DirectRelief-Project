@@ -101,6 +101,11 @@
        document.getElementById(id).className = "activatedItem";
      }
      
+     function checkDone(){
+       for (var i=0; i<locations.length; i++){
+          html+="<li id="+locations[i].id+">"+locations[i].name+"</li>";
+        }
+     }
      function placeMarker(event){
        if (checkLocation(event.latLng.k, event.latLng.B)&& checkTimeNotDone())
        {
