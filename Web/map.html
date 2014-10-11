@@ -11,8 +11,10 @@
      var map;
      var activeIndex = 0;
      var pointsCount = 0;
+     var myCountdown1;
      var locations = [
        {
+         id:1,
          name:"costco",
          topLeftPos:{lat: 37.421437, lng: -122.096648},
          width:0.002833,
@@ -20,6 +22,7 @@
          resourceType:"food"
        },
        {
+         id:2,
          name:"shoreline ampitheater",
          topLeftPos:{lat: 37.427504, lng: -122.082057},
          width:0.002661,
@@ -27,6 +30,7 @@
          resourceType:"shelter"
        },
        {
+          id:3,
           name:"theuerkauf elementary",
           topLeftPos:{lat: 37.405962, lng: -122.085490},
           width:0.002918,
@@ -34,6 +38,7 @@
           resourceType:"shelter"
         },
        {
+         id:4,
          name:"el camino hospital",
          topLeftPos:{lat: 37.370091, lng: -122.081971},
          width:0.003948,
@@ -41,6 +46,7 @@
          resourceType:"medicine"
        },   
        {
+         id:5,
          name:"shoreline park",
          topLeftPos:{lat: 37.434115, lng: -122.095189},
          width:0.006609,
@@ -48,6 +54,7 @@
          resourceType:"water"
        },  
        {
+         id:6,
          name:"castro st caltrain",
          topLeftPos:{lat: 37.395530, lng: -122.078108},
          width:0.003004,
@@ -55,6 +62,7 @@
          resourceType:"public transportation"
        }, 
        {
+         id:7,
          name:"84 bridge",
          topLeftPos:{lat: 37.506936, lng: -122.124199},
          width:0.0109,
@@ -73,6 +81,7 @@
               lng <=locations[i].topLeftPos.lng+locations[i].width){
               
               locations[i].found = true;
+              highLight(locations[i].id);
               return true;
            }
          }
@@ -80,12 +89,29 @@
        return false;
      }
      
+     function checkTimeNotDone(){
+       if (myCountdown1._timeRunnerNow.minute == 0 &&
+         myCountdown1._timeRunnerNow.second == 0 &&
+         myCountdown1._timeRunnerNow.ms == 0){
+         return false;
+       }
+       return true;
+     }
+     
+     function highLight(id){
+       document.getElementById(id).className = "activatedItem";
+     }
+     
      function placeMarker(event){
-       if (checkLocation(event.latLng.k, event.latLng.B))
+       if (checkLocation(event.latLng.k, event.latLng.B)&& checkTimeNotDone())
        {
          marker = new google.maps.Marker({position: event.latLng, map: map});
          pointsCount = pointsCount + 10;
          updatePointsLabel();
+       }
+       
+       if (!checkTimeNotDone()){
+         alert('Time is out!');
        }
      }
 	 
@@ -96,7 +122,7 @@
      function outputList(){
        var html="";
        for (var i=0; i<locations.length; i++){
-         html+="<li>"+locations[i].name+"</li>";
+         html+="<li id="+locations[i].id+">"+locations[i].name+"</li>";
        }
        document.getElementById('list').innerHTML = html;
        
@@ -130,7 +156,7 @@
       <li>
       <div class="nav-item">
          <script>
-            var myCountdown1 = new Countdown({
+            myCountdown1 = new Countdown({
               time:600,
               width:150, 
               height:50, 
@@ -153,30 +179,32 @@
       <div id="map-canvas"></div>
     </div>
     <div class="right-col">
-<<<<<<< HEAD
       <ul id="list">
       </ul>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 =======
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 7c1a9a6d3dfa50cdbbe4be2628ff2b420410a072
+      <ul id="list">
+      </ul>
+>>>>>>> origin/master
     </div>
 
     <div class="push"></div>
  </div>
  <footer>
-      <p><strong>---</strong></p>
+      <p><strong>--------</strong></p>
     </footer>
   </body>
 </html>
