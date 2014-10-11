@@ -85,15 +85,23 @@
 
  }
  .nav-item{
+    padding-left: 50px;
  	float: right;
  }
  
 li{
  	display: inline; 
  }
+.main-nav > ul{
+    padding-top:0;
+    list-style-type: none;
+     width: 100%;
+ }
+.main-nav > ul li{
+  border: none;
+}
 
-
- .right-col > ul{
+ul{
     padding-top: 30px;
     margin-right: auto;
     margin-left: auto;
@@ -101,13 +109,13 @@ li{
     list-style-type: none;
  }
 
- .right-col > ul  li{
+ul li{
     position: relative;
     font-family: "Raleway";
     border-bottom: 1px solid #ccc;
     text-decoration: none;
     text-align: center;
-    color: #000;
+    color: #7FCCC4;
     display: block;
     width: 80%;
  
@@ -122,11 +130,13 @@ li{
  }
  
 
- .right-col > ul li:last-child {
+ul li:last-child {
   border: none;
 }
  .activatedItem{
-
+    color:#000;
+    font-weight: 700;
+    font-size: 30px;
  }
  hr{
     border:0;
