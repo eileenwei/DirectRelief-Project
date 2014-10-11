@@ -34,21 +34,21 @@
           width:0.003948,
           height:0.00266,
           resourceType:"medicine"
-        }      
+        },   
         {
           name:"shoreline park",
           topLeftPos:{lat: 37.434115, lng: -122.095189},
           width:0.006609,
           height:0.003203,
           resourceType:"water"
-        }  
+        },  
         {
           name:"castro st caltrain",
           topLeftPos:{lat: 37.395530, lng: -122.078108},
           width:0.003004,
           height:0.002387,
           resourceType:"public transportation"
-        }  
+        }, 
         {
           name:"84 bridge",
           topLeftPos:{lat: 37.506936, lng: -122.124199},
@@ -76,8 +76,7 @@
       }
       
       function placeMarker(event){
-
-            marker = new google.maps.Marker({position: event.latLng, map: map});
+        marker = new google.maps.Marker({position: event.latLng, map: map});
       }
       
       function initialize() {

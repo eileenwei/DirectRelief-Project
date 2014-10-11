@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    
+     <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiH1ODceZGqy0D97VtntN2nSoK1ox5Snw">
+    </script>
+    <script src="countdown.js"></script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: -34.397, lng: 150.644},
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+     <script type="text/javascript">
+    
+      var activeIndex = 0;
+      var locations = [
+        {
+          name:"costco",
+          topLeftPos:{lat: 37.412313, lng: -122.071638},
+          width:10,
+          height:10,
+          resourceType:"food"
+        },
+        {
+          name:"costco",
+          topLeftPos:{lat: 37.412313, lng: -122.071638},
+          width:10,
+          height:10,
+          resourceType:"food"
+        },
+        {
+          name:"costco",
+          topLeftPos:{lat: 37.412313, lng: -122.071638},
+          width:10,
+          height:10,
+          resourceType:"food"
+        }       
+      ];
+      
+      function initialize() {
+        var mapOptions = {
+          center: { lat: 37.412313, lng: -122.071638},
+          zoom: 13
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+    <!-- Navigation -->
+    <div class="main-nav">
+      <ul>
+        <li>
+        <div class="logo">
+            <a href=""><h1>DirectRelief</h1></a>
+          </div>
+      </li>
+      <li>
+      <div class="nav-item">
+         <script>
+            var myCountdown1 = new Countdown({
+              time:600,
+              width:150, 
+              height:50, 
+              rangeHi:"minute"});
+       </script> 
+    </div>
+     </li>
+      <li>
+      <div class="nav-item">
+         <script>
+            var myCountdown1 = new Countdown({
+              time:600,
+              width:150, 
+              height:50, 
+              rangeHi:"minute"});
+       </script> 
+    </div>
+     </li>
+    </ul>
+    </div>
+
+    <!-- Navigation -->
+      <div class="clr"></div>
+    <div class="left-col">    
+      <div id="map-canvas"></div>
+    </div>
+    <div class="right-col">
+
+    </div>
+
+
+
+
+    <div class="push"></div>
+ </div>
+ <footer>
+      <p><strong>---</strong></p>
+    </footer>
+  </body>
+</html>
