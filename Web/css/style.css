@@ -22,8 +22,9 @@
     margin-top: 8px;
     text-align: left;
     font-size: 30px;
+    font-weight: bold;
     font-family: 'Raleway', sans-serif;
-    color:#000;
+    color:#7FCCC4;
     padding-left: 8																																																																																																											0px;
 }
 .logo a{
@@ -41,7 +42,15 @@
 	float:right;
 	height:100%;
 }
- html, body{ height: 100%; width: 1000px; margin-left: auto; margin-right: auto;padding: 0;overflow:hidden;}
+ html, body{ 
+ 	height: 100%; 
+ 	width: 1000px; 
+ 	margin-left: auto; 
+ 	margin-right: auto;
+ 	padding: 0;
+ 	overflow:hidden;
+
+ }
  .clr {
     clear:both;
     padding:0;
@@ -60,7 +69,20 @@
 	height: 70px; /* .push must be the same height as .footer */
 }
 
- #map-canvas { height: 450px; margin: 0; padding: 0;}
+ #map-canvas { 
+ 	height: 450px; 
+ 	width: 98%;
+ 	margin-left: auto; 
+ 		margin-right: auto;
+ 	padding: 0;
+
+ 	-moz-box-shadow: 0 0 10px #ccc; 
+  -webkit-box-shadow: 0 0 10px #ccc; 
+  box-shadow: 0 0 10px #ccc;
+    color:#19B5FE;
+
+
+ }
  .nav-item{
  	float: right;
  }
@@ -69,4 +91,13 @@
  }
  li{
  	display: inline; 
+ }
+
+
+ .right-col > ul{
+
+ }
+
+ .right-col > li{
+    
  }
