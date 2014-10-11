@@ -1,9 +1,13 @@
 package com.example.directrelief;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.*;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +16,16 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        Button startGame = (Button) findViewById(R.id.startGame);
+        startGame.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent start = new Intent(MainActivity.this, MapActivity.class);
+				startActivity(start);
+			}
+		});
     }
 
 
