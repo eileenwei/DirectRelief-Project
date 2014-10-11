@@ -7,7 +7,11 @@
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiH1ODceZGqy0D97VtntN2nSoK1ox5Snw">
     </script>
+    <script src="countdown.js"></script>
+
+
     <script type="text/javascript">
+    
       function initialize() {
         var mapOptions = {
           center: { lat: 37.412313, lng: -122.071638},
@@ -20,6 +24,13 @@
     </script>
   </head>
   <body>
+    <script>
+    var myCountdown1 = new Countdown({
+      time:600,
+      width:150, 
+		  height:80, 
+		  rangeHi:"minute"});
+    </script>
 <div id="map-canvas"></div>
   </body>
 </html>
