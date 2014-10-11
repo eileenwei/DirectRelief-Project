@@ -31,7 +31,7 @@
   text-decoration: none;
 }
 .left-col{
-	padding-top: 20px;
+	padding-top: 10px;
 	width: 65%;
 	float:left;
 	height:100%;
@@ -145,4 +145,15 @@ ul li:last-child {
     margin-right: 10px;
     border-top: 1px solid rgba(0,0,0,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+p{
+        font-family: "Raleway";
+        padding-left: 40px;
+        font-size: 20px;
+        color:#666;
+}
+label{
+    color: #000;
+    font-size: 30px;
 }
