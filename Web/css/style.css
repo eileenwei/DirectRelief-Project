@@ -24,7 +24,7 @@
     font-size: 30px;
     font-weight: bold;
     font-family: 'Raleway', sans-serif;
-    color:#7FCCC4;
+    color:#000;
     padding-left: 8																																																																																																											0px;
 }
 .logo a{
@@ -41,6 +41,7 @@
 	width: 30%;
 	float:right;
 	height:100%;
+    background: yellow;
 }
  html, body{ 
  	height: 100%; 
@@ -86,18 +87,27 @@
  .nav-item{
  	float: right;
  }
- ul{
- 	background: #000;
- }
- li{
+ 
+li{
  	display: inline; 
  }
 
 
  .right-col > ul{
-
+    padding-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 200px;
  }
 
  .right-col > li{
     
  }
+ hr{
+    border:0;
+    height: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
