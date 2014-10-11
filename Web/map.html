@@ -10,6 +10,7 @@
      <script type="text/javascript">
      var map;
      var activeIndex = 0;
+     var pointsCount = 0;
      var myCountdown1;
      var locations = [
        {
@@ -18,7 +19,8 @@
          topLeftPos:{lat: 37.421437, lng: -122.096648},
          width:0.002833,
          height:0.001908,
-         resourceType:"food"
+         resourceType:"food",
+         found: false
        },
        {
          id:2,
@@ -26,7 +28,8 @@
          topLeftPos:{lat: 37.427504, lng: -122.082057},
          width:0.002661,
          height:0.001772,
-         resourceType:"shelter"
+         resourceType:"shelter",
+         found: false
        },
        {
           id:3,
@@ -34,7 +37,8 @@
           topLeftPos:{lat: 37.405962, lng: -122.085490},
           width:0.002918,
           height:0.002727,
-          resourceType:"shelter"
+          resourceType:"shelter",
+          found: false
         },
        {
          id:4,
@@ -42,7 +46,8 @@
          topLeftPos:{lat: 37.370091, lng: -122.081971},
          width:0.003948,
          height:0.00266,
-         resourceType:"medicine"
+         resourceType:"medicine",
+         found: false
        },   
        {
          id:5,
@@ -50,7 +55,8 @@
          topLeftPos:{lat: 37.434115, lng: -122.095189},
          width:0.006609,
          height:0.003203,
-         resourceType:"water"
+         resourceType:"water",
+         found: false
        },  
        {
          id:6,
@@ -58,7 +64,8 @@
          topLeftPos:{lat: 37.395530, lng: -122.078108},
          width:0.003004,
          height:0.002387,
-         resourceType:"public transportation"
+         resourceType:"public transportation",
+         found: false
        }, 
        {
          id:7,
@@ -66,7 +73,8 @@
          topLeftPos:{lat: 37.506936, lng: -122.124199},
          width:0.0109,
          height:0.005583,
-         resourceType:"escape route"
+         resourceType:"escape route",
+         found: false
        }  
      ];
      
@@ -103,19 +111,31 @@
      
      function checkDone(){
        for (var i=0; i<locations.length; i++){
-          html+="<li id="+locations[i].id+">"+locations[i].name+"</li>";
+          if (!locations[i].found){
+            return false;
+          }
         }
+        return true;
      }
+     
      function placeMarker(event){
        if (checkLocation(event.latLng.k, event.latLng.B)&& checkTimeNotDone())
        {
          marker = new google.maps.Marker({position: event.latLng, map: map});
+         pointsCount = pointsCount + 10;
+         updatePointsLabel();
        }
-       
-       if (!checkTimeNotDone()){
+       if (checkDone()){
+         alert("Good Job! You are now more prepared for a disaster in your local area!");
+       }
+       else if (!checkTimeNotDone()){
          alert('Time is out!');
        }
      }
+	 
+	 function updatePointsLabel(){
+		document.getElementById("points-count").innerHTML = pointsCount;
+	 }
      
      function outputList(){
        var html="";
@@ -133,8 +153,10 @@
        };
        map = new google.maps.Map(document.getElementById('map-canvas'),
            mapOptions);
-       outputList();
-       google.maps.event.addListener(map, 'click', placeMarker);
+                    outputList();
+      google.maps.event.addListener(map, 'click', placeMarker);
+	  
+      updatePointsLabel();
      }
      google.maps.event.addDomListener(window, 'load', initialize);
     </script>
@@ -154,12 +176,18 @@
       <div class="nav-item">
          <script>
             myCountdown1 = new Countdown({
-              time:600,
+              time:300,
               width:150, 
               height:50, 
               rangeHi:"minute"});
        </script> 
     </div>
+     </li>
+     <li>
+       <div>
+         <label>Points: </label>
+         <label id="points-count"></label>
+       </div>
      </li>
     </ul>
     </div>
@@ -170,6 +198,7 @@
       <div id="map-canvas"></div>
     </div>
     <div class="right-col">
+
       <ul id="list">
       </ul>
     </div>
@@ -177,7 +206,7 @@
     <div class="push"></div>
  </div>
  <footer>
-      <p><strong></strong></p>
+      <p><strong>></strong></p>
     </footer>
   </body>
 </html>
