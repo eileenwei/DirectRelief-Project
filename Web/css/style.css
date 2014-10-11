@@ -32,20 +32,20 @@
 }
 .left-col{
 	padding-top: 20px;
-	width: 70%;
+	width: 65%;
 	float:left;
 	height:100%;
 }
 
 .right-col{
-	width: 30%;
+	width: 35%;
 	float:right;
 	height:100%;
-    background: yellow;
+    overflow-y: auto;
 }
  html, body{ 
  	height: 100%; 
- 	width: 1000px; 
+ 	width: 1200px; 
  	margin-left: auto; 
  	margin-right: auto;
  	padding: 0;
@@ -72,7 +72,7 @@
 
  #map-canvas { 
  	height: 450px; 
- 	width: 98%;
+ 	width: 90%;
  	margin-left: auto; 
  		margin-right: auto;
  	padding: 0;
@@ -94,14 +94,39 @@ li{
 
 
  .right-col > ul{
-    padding-top: 50px;
+    padding-top: 30px;
     margin-right: auto;
     margin-left: auto;
-    width: 200px;
+    width: 80%;
+    list-style-type: none;
  }
 
- .right-col > li{
-    
+ .right-col > ul  li{
+    position: relative;
+    font-family: "Raleway";
+    border-bottom: 1px solid #ccc;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+    display: block;
+    width: 80%;
+ 
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+  font-size: 20px;
+  margin: 20px 0;
+
+ }
+ 
+
+ .right-col > ul li:last-child {
+  border: none;
+}
+ .activatedItem{
+
  }
  hr{
     border:0;
