@@ -66,8 +66,8 @@
        for (var i = 0; i<locations.length; i++){
          if (!locations[i].found)
          {
-           if (lat >= locations[i].topLeftPos.lat &&
-              lat <=locations[i].topLeftPos.lat+locations[i].height &&
+           if (lat >= locations[i].topLeftPos.lat-locations[i].height &&
+              lat <=locations[i].topLeftPos.lat &&
               lng >= locations[i].topLeftPos.lng &&
               lng <=locations[i].topLeftPos.lng+locations[i].width){
               
@@ -80,11 +80,19 @@
      }
      
      function placeMarker(event){
-       console.log('hi');
-       if (checkLocation(event.latLng.lat, event.latLng.lng))
+       if (checkLocation(event.latLng.k, event.latLng.B))
        {
          marker = new google.maps.Marker({position: event.latLng, map: map});
        }
+     }
+     
+     function outputList(){
+       var html="";
+       for (var i=0; i<locations.length; i++){
+         html+="<li>"+locations[i].name+"</li>";
+       }
+       document.getElementById('list').innerHTML = html;
+       
      }
      
      function initialize() {
@@ -94,7 +102,7 @@
        };
        map = new google.maps.Map(document.getElementById('map-canvas'),
            mapOptions);
-           
+                    outputList();
       google.maps.event.addListener(map, 'click', placeMarker);
      }
      google.maps.event.addDomListener(window, 'load', initialize);
@@ -130,11 +138,9 @@
       <div id="map-canvas"></div>
     </div>
     <div class="right-col">
-
+      <ul id="list">
+      </ul>
     </div>
-
-
-
 
     <div class="push"></div>
  </div>
