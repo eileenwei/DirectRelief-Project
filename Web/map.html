@@ -168,7 +168,7 @@
      function outputList(){
        var html="";
        for (var i=0; i<locations.length; i++){
-         html+="<li id="+locations[i].id+"><a href="+resourceTypes[locations[i].resourceType].link+" target=\"_blank\"><i class=\"fa fa-"+resourceTypes[locations[i].resourceType].icon  +"\"></i></a>&nbsp&nbsp&nbsp&nbsp"+locations[i].name+"</li>";
+         html+="<li id="+locations[i].id+"><a href="+resourceTypes[locations[i].resourceType].link+" target=\"_blank\"><i class=\"fa fa-"+resourceTypes[locations[i].resourceType].icon  +"\"></i>&nbsp&nbsp&nbsp&nbsp"+locations[i].name+"</a></li>";
        }
        document.getElementById('list').innerHTML = html;
        
