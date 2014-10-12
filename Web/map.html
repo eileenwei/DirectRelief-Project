@@ -16,9 +16,9 @@
       { 
       food: {icon:"cutlery", link:"http://www.ready.gov/food"},
       water: {icon:"beer", link:"http://www.ready.gov/water"},
-      shelter: {icon:"heart", link:"http://emergency.tufts.edu/guide/evacuation/"},
-      medicine: {icon:"plus-square", link:"http://www.fda.gov/Drugs/EmergencyPreparedness/ucm085200.htm"},
-      transportation: {icon:"ambulance", link:"http://www.mwcog.org/clrp/elements/security.asp"},
+      shelter: {icon:"heart", link:"http://www.ready.gov/shelter"},
+      medicine: {icon:"plus-square", link:"http://www.ready.gov/kit"},
+      transportation: {icon:"ambulance", link:"http://www.ready.gov/evacuating-yourself-and-your-family"},
       escaperoute: {icon:"reply-all", link:"http://www.ready.gov/evacuating-yourself-and-your-family"},
       };
       
@@ -168,7 +168,7 @@
      function outputList(){
        var html="";
        for (var i=0; i<locations.length; i++){
-         html+="<li id="+locations[i].id+"><a href="+resourceTypes[locations[i].resourceType].link+"><i class=\"fa fa-"+resourceTypes[locations[i].resourceType].icon  +"\"></i></a>&nbsp&nbsp&nbsp&nbsp"+locations[i].name+"</li>";
+         html+="<li id="+locations[i].id+"><a href="+resourceTypes[locations[i].resourceType].link+" target=\"_blank\"><i class=\"fa fa-"+resourceTypes[locations[i].resourceType].icon  +"\"></i>&nbsp&nbsp&nbsp&nbsp"+locations[i].name+"</a></li>";
        }
        document.getElementById('list').innerHTML = html;
        
