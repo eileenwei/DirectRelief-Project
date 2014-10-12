@@ -14,12 +14,12 @@
      var myCountdown1;
      var resourceTypes =
       { 
-      food: {icon:"cutlery"},
-      water: {icon:"beer"},
-      shelter: {icon:"heart"},
-      medicine: {icon:"plus-square"},
-      transportation: {icon:"ambulance"},
-      escaperoute: {icon:"reply-all"},
+      food: {icon:"cutlery", link:"http://www.ready.gov/food"},
+      water: {icon:"beer", link:"http://www.ready.gov/water"},
+      shelter: {icon:"heart", link:"http://www.ready.gov/shelter"},
+      medicine: {icon:"plus-square", link:"http://www.ready.gov/kit"},
+      transportation: {icon:"ambulance", link:"http://www.ready.gov/evacuating-yourself-and-your-family"},
+      escaperoute: {icon:"reply-all", link:"http://www.ready.gov/evacuating-yourself-and-your-family"},
       };
       
      var locations = [
@@ -168,7 +168,7 @@
      function outputList(){
        var html="";
        for (var i=0; i<locations.length; i++){
-         html+="<li id="+locations[i].id+"><i class=\"fa fa-"+resourceTypes[locations[i].resourceType].icon  +"\"></i>&nbsp&nbsp&nbsp&nbsp"+locations[i].name+"</li>";
+         html+="<li id="+locations[i].id+"><a href="+resourceTypes[locations[i].resourceType].link+" target=\"_blank\"><i class=\"fa fa-"+resourceTypes[locations[i].resourceType].icon  +"\"></i></a>&nbsp&nbsp&nbsp&nbsp"+locations[i].name+"</li>";
        }
        document.getElementById('list').innerHTML = html;
        
