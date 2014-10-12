@@ -12,6 +12,16 @@
      var activeIndex = 0;
      var pointsCount = 0;
      var myCountdown1;
+     var resourceTypes =
+      { 
+      food: {icon:"cutlery"},
+      water: {icon:"beer"},
+      shelter: {icon:"heart"},
+      medicine: {icon:"plus-square"},
+      transportation: {icon:"ambulance"},
+      escaperoute: {icon:"reply-all"},
+      };
+      
      var locations = [
        {
          id:1,
@@ -64,7 +74,7 @@
          topLeftPos:{lat: 37.395530, lng: -122.078108},
          width:0.003004,
          height:0.002387,
-         resourceType:"public transportation",
+         resourceType:"transportation",
          found: false
        }, 
        {
@@ -73,7 +83,7 @@
          topLeftPos:{lat: 37.506936, lng: -122.124199},
          width:0.0109,
          height:0.005583,
-         resourceType:"escape route",
+         resourceType:"escaperoute",
          found: false
        }, 
        {
@@ -87,7 +97,7 @@
        }, 
        {
          id:9,
-         name:"safeway",
+         name:"san antonio shopping center",
          topLeftPos:{lat: 37.405008, lng: -122.113127},
          width:0.006437,
          height:0.005523,
@@ -158,7 +168,7 @@
      function outputList(){
        var html="";
        for (var i=0; i<locations.length; i++){
-         html+="<li id="+locations[i].id+">"+locations[i].name+"</li>";
+         html+="<li id="+locations[i].id+"><i class=\"fa fa-"+resourceTypes[locations[i].resourceType].icon  +"\"></i>&nbsp&nbsp&nbsp&nbsp"+locations[i].name+"</li>";
        }
        document.getElementById('list').innerHTML = html;
        
